@@ -1,0 +1,17 @@
+{% extends "partials/base.html" %}
+{% load helper %}
+{% block content %}
+polls questions are:
+{% comment %}
+        romil
+{% endcomment %}
+{% for question in questions %}
+    <p>{% upper_text_name question.question_text %}</p>
+    <p>{{ question.question_text|add_str:"romil" }}</p>
+
+    <p>date is {{ question.pub_date }}</p>
+    <a href="{% url 'polls:details' question.id %}">Details</a>
+{% endfor %}
+<a href="{% url 'polls:logout' %}">logout</a>
+{% endblock%}
+
